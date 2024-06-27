@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="94823a4e-320c-419c-8ad0-8d3482a87900" activeEnvironment="Default" name="University API Provider" resourceRoot="" soapui-version="5.7.0"
+                    xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="7d4257c4-01d7-46e6-9a6b-4026957d9d3c" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://universities.hipolabs.com" type="rest"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://universities.hipolabs.com</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Search" path="/search" id="91978ed7-51f4-4fb4-836b-0657d6b3b165">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>country</con:name>
+                    <con:value>India</con:value>
+                    <con:style>QUERY</con:style>
+                    <con:default>India</con:default>
+                    <con:path xsi:nil="true"/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Search 1" id="b51f2a93-f410-4014-b1b0-2a87775fd9ef" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="57b8ecd6-6a5a-4046-aed5-781d4221b6af" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                    </con:settings>
+                    <con:endpoint>http://universities.hipolabs.com</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://universities.hipolabs.com/search</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="country" value="India"
+                               xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>country</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="711093aa-b8d6-4766-8540-43743d984c8f" name="http://universities.hipolabs.com TestSuite">
+        <con:description>TestSuite generated for REST Service [http://universities.hipolabs.com]</con:description>
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="08e5f19a-e7de-4531-9a2c-f97782431770" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Search TestCase" searchProperties="true">
+            <con:description>TestCase generated for REST Resource [Search] located at [/search]</con:description>
+            <con:settings/>
+            <con:testStep type="restrequest" name="Request 1" id="72dbb888-a936-4c00-83af-5298f8755fe8">
+                <con:settings/>
+                <con:config service="http://universities.hipolabs.com" resourcePath="/search" methodName="Search 1" xsi:type="con:RestRequestStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Request 1" id="57b8ecd6-6a5a-4046-aed5-781d4221b6af" mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://universities.hipolabs.com</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://universities.hipolabs.com/search</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="05aa50f9-3ca1-4e52-9f48-8e3f4454ad9f" name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Simple Contains" id="44d63f62-cf67-4bed-8b59-b848ced63837" name="Contains">
+                            <con:configuration>
+                                <token>Delhi</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Simple Contains" id="962ac99f-2bf1-4720-82e2-eb60e773bf25" name="Contains 1">
+                            <con:configuration>
+                                <token>IIT Bhubaneswar</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Response SLA Assertion" id="a8c6b05f-4715-4ddf-9d54-d683a2a756db" name="Response SLA">
+                            <con:configuration>
+                                <SLA>2000</SLA>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+                            <entry key="country" value="India"
+                                   xmlns="http://eviware.com/soapui/config"/>
+                        </con:parameters>
+                        <con:parameterOrder>
+                            <con:entry>country</con:entry>
+                        </con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="calltestcase" name="Assertion" id="545b40c7-3ebc-4659-91ac-38c7bb02c004">
+                <con:settings/>
+                <con:config xsi:type="con:RunTestCaseStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:properties/>
+                    <con:returnProperties/>
+                    <con:runMode>PARALLELL</con:runMode>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>
